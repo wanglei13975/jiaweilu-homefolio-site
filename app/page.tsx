@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const appStoreURL = "https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_jiaweilu&mt=8";
+
 const features = [
   { number: "01", title: "一件资产，一份完整档案", copy: "型号、序列号、购买价格、保修日期、铭牌和票据，都放回正确的位置。" },
   { number: "02", title: "维护不是提醒，是长期记录", copy: "从 20 个中文家庭维护模板开始，每次服务同时留下费用、服务商和凭证。" },
@@ -11,7 +13,7 @@ export default function Home() {
   return <main>
     <nav className="nav"><Link className="wordmark" href="/"><Image src="/app-icon.png" width={38} height={38} alt="家维录图标"/><span>家维录</span></Link><div><a href="#features">功能</a><Link href="/privacy">隐私</Link><Link href="/support">支持</Link></div></nav>
     <section className="hero">
-      <div className="heroCopy"><p className="eyebrow">家庭资产护照 · 默认私密</p><h1>房子的记忆，<br/><em>不该散落在相册里。</em></h1><p className="lead">把资产、保修、票据、维护和每一笔服务支出，整理成一份真正有用的家庭档案。</p><div className="badges"><span>无需账户</span><span>无广告</span><span>本地保存</span></div><p className="coming">正在进行上架前质量验证</p></div>
+      <div className="heroCopy"><p className="eyebrow">家庭资产护照 · 默认私密</p><h1>房子的记忆，<br/><em>不该散落在相册里。</em></h1><p className="lead">把资产、保修、票据、维护和每一笔服务支出，整理成一份真正有用的家庭档案。</p><div className="badges"><span>无需账户</span><span>无广告</span><span>本地保存</span></div><a className="storeCta" href={appStoreURL} target="_blank" rel="noreferrer">在 App Store 下载家维录 <span>↗</span></a><p className="availability">免费开始使用；完整资产历史、洞察与 PDF 报告可选 Pro。价格与可用性以 Apple App Store 展示为准。</p></div>
       <div className="heroVisual"><div className="halo"/><Image className="phone" src="/dashboard.png" width={390} height={848} priority alt="家维录家庭健康度总览"/></div>
     </section>
     <section id="features" className="features"><div className="sectionIntro"><p className="eyebrow">不是另一个提醒清单</p><h2>让每一次投入，都成为家的历史。</h2></div><div className="featureGrid">{features.map(feature => <article key={feature.number}><span>{feature.number}</span><h3>{feature.title}</h3><p>{feature.copy}</p></article>)}</div></section>

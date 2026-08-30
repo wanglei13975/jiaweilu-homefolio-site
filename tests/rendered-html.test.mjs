@@ -38,6 +38,9 @@ test("renders the 家维录 product page with real product value", async () => {
   assert.match(html, /无需账户/);
   assert.match(html, /无广告/);
   assert.match(html, /本地保存/);
+  assert.match(html, /在 App Store 下载家维录/);
+  assert.match(html, /id6799400433\?ct=github_jiaweilu&amp;mt=8/);
+  assert.doesNotMatch(html, /上架前质量验证/);
   assert.match(html, /href="\/privacy"/);
   assert.match(html, /href="\/support"/);
   assert.doesNotMatch(html, /starter|loading skeleton|appforge\.example/i);
