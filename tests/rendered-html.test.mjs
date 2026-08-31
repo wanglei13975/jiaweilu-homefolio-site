@@ -82,6 +82,8 @@ test("renders a free maintenance calculator with a tracked store CTA", async () 
   assert.match(html, /id="maintenance-calculator"/);
   assert.match(html, /计算下次保养日期/);
   assert.match(html, /按你设定的月份计算日期/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /WebApplication/);
   assert.match(html, /id6799400433\?ct=github_maintenance_calculator&amp;mt=8/);
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
