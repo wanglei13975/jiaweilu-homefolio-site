@@ -75,3 +75,14 @@ test("renders a high-intent family maintenance guide with a tracked store CTA", 
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
 });
+
+test("renders a free maintenance calculator with a tracked store CTA", async () => {
+  const html = await expectPage("/maintenance-calculator");
+  assert.match(html, /<title>家庭保养日期计算器 · 家维录<\/title>/);
+  assert.match(html, /id="maintenance-calculator"/);
+  assert.match(html, /计算下次保养日期/);
+  assert.match(html, /按你设定的月份计算日期/);
+  assert.match(html, /id6799400433\?ct=github_maintenance_calculator&amp;mt=8/);
+  assert.match(html, /¥68/);
+  assert.match(html, /¥198/);
+});
