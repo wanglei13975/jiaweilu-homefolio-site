@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-const appStoreURL = "https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_home_maintenance&mt=8";
+const appStoreURL = "https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ppid=4c3c6cef-a4c4-4751-856e-2fae65b8bb77&ct=github_home_maintenance&mt=8";
 
 export const metadata: Metadata = {
   title: "家电保修与维修记录 · 家维录",

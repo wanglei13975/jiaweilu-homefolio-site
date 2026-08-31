@@ -39,7 +39,7 @@ test("renders the 家维录 product page with real product value", async () => {
   assert.match(html, /无广告/);
   assert.match(html, /本地保存/);
   assert.match(html, /在 App Store 下载家维录/);
-  assert.match(html, /id6799400433\?ct=github_jiaweilu&amp;mt=8/);
+  assert.match(html, /id6799400433\?ppid=4c3c6cef-a4c4-4751-856e-2fae65b8bb77&amp;ct=github_jiaweilu&amp;mt=8/);
   assert.doesNotMatch(html, /上架前质量验证/);
   assert.match(html, /href="\/privacy"/);
   assert.match(html, /href="\/support"/);
@@ -71,7 +71,7 @@ test("renders a high-intent family maintenance guide with a tracked store CTA", 
   assert.match(html, /家电保修、维修和保养/);
   assert.match(html, /记录品牌、型号、序列号/);
   assert.match(html, /在 App Store 下载家维录/);
-  assert.match(html, /id6799400433\?ct=github_home_maintenance&amp;mt=8/);
+  assert.match(html, /id6799400433\?ppid=4c3c6cef-a4c4-4751-856e-2fae65b8bb77&amp;ct=github_home_maintenance&amp;mt=8/);
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
 });
@@ -84,7 +84,7 @@ test("renders a free maintenance calculator with a tracked store CTA", async () 
   assert.match(html, /按你设定的月份计算日期/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /WebApplication/);
-  assert.match(html, /id6799400433\?ct=github_maintenance_calculator&amp;mt=8/);
+  assert.match(html, /id6799400433\?ppid=4c3c6cef-a4c4-4751-856e-2fae65b8bb77&amp;ct=github_maintenance_calculator&amp;mt=8/);
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
 });
