@@ -64,3 +64,14 @@ test("renders support guidance for core and paid flows", async () => {
   assert.match(html, /如何导出报告/);
   assert.match(html, /href="\/privacy"/);
 });
+
+test("renders a high-intent family maintenance guide with a tracked store CTA", async () => {
+  const html = await expectPage("/home-maintenance");
+  assert.match(html, /<title>家庭资产管理与保养提醒 · 家维录<\/title>/);
+  assert.match(html, /家电保修、维修和保养/);
+  assert.match(html, /记录品牌、型号、序列号/);
+  assert.match(html, /在 App Store 下载家维录/);
+  assert.match(html, /id6799400433\?ct=github_home_maintenance&amp;mt=8/);
+  assert.match(html, /¥68/);
+  assert.match(html, /¥198/);
+});
