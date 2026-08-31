@@ -37,7 +37,7 @@ export default function HomeMaintenance() {
         <div className="guideCards">{reasons.map(([title, copy], index) => <section className="guideCard" key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></section>)}</div>
         <Image className="guideImage" src="/assets.png" width={310} height={674} alt="家维录家庭资产列表与保修记录"/>
       </div>
-      <section className="guideBottom"><h2>从一件最常用的设备开始</h2><p>冰箱、空调、洗衣机、热水器或家具都可以先记录。基础资产记录免费使用；无限资产、票据与服务凭证、成本洞察和 PDF 报告可在 App 内选择 Pro。</p><a className="storeCta" href={appStoreURL} target="_blank" rel="noreferrer">在 App Store 下载家维录 <span>↗</span></a><p className="availability">当前中国区 Apple 显示：年度 Pro ¥68/年，终身 Pro ¥198。实际价格与可用性以 App Store 最终展示为准。</p></section>
+      <section className="guideBottom"><h2>从一件最常用的设备开始</h2><p>冰箱、空调、洗衣机、热水器或家具都可以先记录。基础资产记录免费使用；无限资产、票据与服务凭证、成本洞察和 PDF 报告可在 App 内选择 Pro。</p><a className="storeCta" href={appStoreURL} target="_blank" rel="noreferrer">在 App Store 下载家维录 <span>↗</span></a><p className="availability">中国区 9 月 1 日至 25 日终身 Pro ¥6，9 月 26 日恢复 ¥198；年度 Pro ¥68/年。实际价格与可用性以 App Store 最终展示为准。</p></section>
     </article>
     <footer><div className="wordmark"><Image src="/app-icon.png" width={34} height={34} alt=""/><span>家维录</span></div><p>家庭资产护照与维保账本</p><div><Link href="/">首页</Link><Link href="/privacy">隐私政策</Link><Link href="/support">帮助与支持</Link></div></footer>
   </main>;
