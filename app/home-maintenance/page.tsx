@@ -5,17 +5,17 @@ import Link from "next/link";
 const appStoreURL = "https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_home_maintenance&mt=8";
 
 export const metadata: Metadata = {
-  title: "家庭资产管理与保养提醒 · 家维录",
-  description: "记录家电、家具和家庭设备的购买、保修、维修与保养，让每次维护都有凭证可查。",
+  title: "家电保修与维修记录 · 家维录",
+  description: "记录家电保修、维修凭证与保养历史，让家庭设备的每次维护都有迹可查。",
   openGraph: {
-    title: "家庭资产管理与保养提醒 · 家维录",
-    description: "记录家电、家具和家庭设备的购买、保修与维护。",
+    title: "家电保修与维修记录 · 家维录",
+    description: "免费记录家电保修、维修凭证与保养日期，家庭资产一处可查。",
     images: ["/og-v2.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "家庭资产管理与保养提醒 · 家维录",
-    description: "让每次家庭维护都有凭证可查。",
+    title: "家电保修与维修记录 · 家维录",
+    description: "免费记录家电保修、维修凭证与保养日期。",
     images: ["/og-v2.png"],
   },
 };
