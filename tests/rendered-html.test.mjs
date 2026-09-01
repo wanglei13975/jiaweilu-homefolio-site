@@ -94,3 +94,15 @@ test("renders a free maintenance calculator with a tracked store CTA", async () 
   assert.match(html, /¥198/);
   assert.match(html, /class="mobilePurchaseBar"/);
 });
+
+test("renders a high-intent warranty checklist with a tracked store CTA", async () => {
+  const html = await expectPage("/warranty-checklist");
+  assert.match(html, /<title>家电保修到期提醒清单 · 家维录<\/title>/);
+  assert.match(html, /家电保修到期提醒/);
+  assert.match(html, /找到购买凭证/);
+  assert.match(html, /维修经过/);
+  assert.match(html, /在 App Store 下载家维录/);
+  assert.match(html, /id6799400433\?ct=github_warranty_checklist&amp;mt=8/);
+  assert.match(html, /¥6/);
+  assert.match(html, /class="mobilePurchaseBar"/);
+});

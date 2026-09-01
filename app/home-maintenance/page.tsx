@@ -28,7 +28,7 @@ const reasons = [
 
 export default function HomeMaintenance() {
   return <main>
-    <nav className="nav"><Link className="wordmark" href="/"><Image src="/app-icon.png" width={38} height={38} alt="家维录图标"/><span>家维录</span></Link><div><Link href="/maintenance-calculator">免费工具</Link><Link href="/home-maintenance">保养指南</Link><Link href="/privacy">隐私</Link><Link href="/support">支持</Link></div></nav>
+    <nav className="nav"><Link className="wordmark" href="/"><Image src="/app-icon.png" width={38} height={38} alt="家维录图标"/><span>家维录</span></Link><div><Link href="/maintenance-calculator">免费工具</Link><Link href="/home-maintenance">保养指南</Link><Link href="/warranty-checklist">保修清单</Link><Link href="/privacy">隐私</Link><Link href="/support">支持</Link></div></nav>
     <article className="guide">
       <p className="eyebrow">家庭资产管理 · 保修 · 维护</p>
       <h1>家电保修、维修和保养，<br/><em>别再散落在相册和聊天里。</em></h1>

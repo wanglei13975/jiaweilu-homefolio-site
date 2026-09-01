@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function MaintenanceCalculatorPage() {
   return <main>
-    <nav className="nav"><Link className="wordmark" href="/"><Image src="/app-icon.png" width={38} height={38} alt="家维录图标"/><span>家维录</span></Link><div><Link href="/maintenance-calculator">免费工具</Link><Link href="/home-maintenance">保养指南</Link><Link href="/privacy">隐私</Link><Link href="/support">支持</Link></div></nav>
+    <nav className="nav"><Link className="wordmark" href="/"><Image src="/app-icon.png" width={38} height={38} alt="家维录图标"/><span>家维录</span></Link><div><Link href="/maintenance-calculator">免费工具</Link><Link href="/home-maintenance">保养指南</Link><Link href="/warranty-checklist">保修清单</Link><Link href="/privacy">隐私</Link><Link href="/support">支持</Link></div></nav>
     <article className="guide calculatorPage">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebApplication", name: "家庭保养日期计算器 · 家维录", url: "https://wanglei13975.github.io/jiaweilu-homefolio-site/maintenance-calculator/", applicationCategory: "UtilitiesApplication", operatingSystem: "Web browser", isAccessibleForFree: true, description: "免费计算家庭设备的下次保养日期。" }) }} />
       <p className="eyebrow">免费家庭维护工具</p>
