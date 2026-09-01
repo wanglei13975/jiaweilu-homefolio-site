@@ -40,6 +40,8 @@ test("renders the 家维录 product page with real product value", async () => {
   assert.match(html, /本地保存/);
   assert.match(html, /在 App Store 下载家维录/);
   assert.match(html, /id6799400433\?ct=github_jiaweilu&amp;mt=8/);
+  assert.match(html, /class="mobilePurchaseBar"/);
+  assert.match(html, /id6799400433\?ct=github_mobile_cta&amp;mt=8/);
   assert.match(html, /总览右上角打开“家维录 Pro”选择方案/);
   assert.doesNotMatch(html, /上架前质量验证/);
   assert.match(html, /href="\/privacy"/);
@@ -75,6 +77,7 @@ test("renders a high-intent family maintenance guide with a tracked store CTA", 
   assert.match(html, /id6799400433\?ct=github_home_maintenance&amp;mt=8/);
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
+  assert.match(html, /class="mobilePurchaseBar"/);
 });
 
 test("renders a free maintenance calculator with a tracked store CTA", async () => {
@@ -88,4 +91,5 @@ test("renders a free maintenance calculator with a tracked store CTA", async () 
   assert.match(html, /id6799400433\?ct=github_maintenance_calculator&amp;mt=8/);
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
+  assert.match(html, /class="mobilePurchaseBar"/);
 });
