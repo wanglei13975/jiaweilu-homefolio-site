@@ -4,6 +4,8 @@
 
 把家里的设备、型号、序列号、购买信息、保修、票据、维护计划和真实服务支出，整理成一份可以长期查阅的家庭档案。无需账户、无广告，记录默认保存在你的设备上。
 
+> 中国区 9 月 1 日至 25 日，家维录 Pro 终身买断限时 ¥6；[直接在 App Store 下载家维录](https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_readme_top&mt=8)。安装后从总览右上角选择方案。
+
 ## 立即使用
 
 - [打开家维录产品页](https://wanglei13975.github.io/jiaweilu-homefolio-site/)
