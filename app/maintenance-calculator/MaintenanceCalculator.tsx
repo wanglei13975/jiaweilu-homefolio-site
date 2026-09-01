@@ -59,7 +59,7 @@ export default function MaintenanceCalculator() {
       <button className="calcButton" type="submit">计算下次保养日期 <span>→</span></button>
       <p className="calcNote">这是一个按你设定的月份计算日期的免费工具，不替代设备说明书、专业检修或安全判断。</p>
       {error && <p className="calcError" role="alert">{error}</p>}
-      {result && <div className="calcResult" aria-live="polite"><p className="eyebrow">计算结果 · {kind}</p><h2>{formatDate(result.date)}</h2><p>建议检查：{result.copy}。把结果记进家维录，之后还能保存票据、服务费用和维护历史。</p><a className="storeCta" href="https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ppid=4c3c6cef-a4c4-4751-856e-2fae65b8bb77&ct=github_maintenance_calculator&mt=8" target="_blank" rel="noreferrer">在 App Store 保存这次维护记录 <span>↗</span></a></div>}
+      {result && <div className="calcResult" aria-live="polite"><p className="eyebrow">计算结果 · {kind}</p><h2>{formatDate(result.date)}</h2><p>建议检查：{result.copy}。把结果记进家维录，之后还能保存票据、服务费用和维护历史。</p><a className="storeCta" href="https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_maintenance_calculator&mt=8" target="_blank" rel="noreferrer">在 App Store 保存这次维护记录 <span>↗</span></a></div>}
     </form>
   </div>;
 }
