@@ -9,6 +9,7 @@
 - [打开家维录产品页](https://wanglei13975.github.io/jiaweilu-homefolio-site/)
 - [查看家庭资产管理与保养指南](https://wanglei13975.github.io/jiaweilu-homefolio-site/home-maintenance/)
 - [使用家庭保养日期计算器](https://wanglei13975.github.io/jiaweilu-homefolio-site/maintenance-calculator/)
+- [阅读家电保修与维修记录清单（公开指南）](https://gist.github.com/wanglei13975/c8e2fd6484a80f0446283ef1647d2e2f)
 - [在 App Store 下载家维录](https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_readme&mt=8)
 - [隐私政策](https://wanglei13975.github.io/jiaweilu-homefolio-site/privacy/)
 - [帮助与支持](https://wanglei13975.github.io/jiaweilu-homefolio-site/support/)
