@@ -39,7 +39,7 @@ export default function WarrantyChecklistPage() {
         <div className="guideCards">{checklist.map(([title, copy], index) => <section className="guideCard" key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></section>)}</div>
         <Image className="guideImage" src="/assets.png" width={310} height={674} alt="家维录家庭资产档案与保修记录"/>
       </div>
-      <section className="guideBottom"><h2>把一次性清单，变成长期档案</h2><p>家维录可以把设备、票据、保修日期、维护计划和每次服务费用放在同一件资产下面。基础记录免费开始；Pro 可保存无限资产、票据与服务凭证，并导出 PDF 报告。</p><a className="storeCta" href={appStoreURL} target="_blank" rel="noreferrer">在 App Store 下载家维录 <span>↗</span></a><p className="availability">中国区 9 月 1 日至 25 日终身 Pro ¥6，9 月 26 日恢复 ¥198；年度 Pro ¥68/年。实际价格与可用性以 App Store 最终展示为准。</p></section>
+      <section className="guideBottom"><h2>把一次性清单，变成长期档案</h2><p>家维录可以把设备、票据、保修日期、维护计划和每次服务费用放在同一件资产下面。基础记录免费开始；Pro 可保存无限资产、票据与服务凭证，并导出 PDF 报告。</p><a className="storeCta" href={appStoreURL} target="_blank" rel="noreferrer">在 App Store 下载家维录 <span>↗</span></a><p className="availability">中国区终身 Pro ¥198（一次性），年度 Pro ¥68/年。最终价格与可用性以 App Store 实际展示为准。</p></section>
     </article>
     <footer><div className="wordmark"><Image src="/app-icon.png" width={34} height={34} alt=""/><span>家维录</span></div><p>家庭资产护照与维保账本</p><div><Link href="/">首页</Link><Link href="/home-maintenance">保养指南</Link><Link href="/privacy">隐私政策</Link><Link href="/support">帮助与支持</Link></div></footer>
   </main>;
