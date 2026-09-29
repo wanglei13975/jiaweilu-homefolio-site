@@ -4,7 +4,7 @@
 
 把家里的设备、型号、序列号、购买信息、保修、票据、维护计划和真实服务支出，整理成一份可以长期查阅的家庭档案。无需账户、无广告，记录默认保存在你的设备上。
 
-> 免费开始使用；中国区终身 Pro ¥198（一次性），年度 Pro ¥68/年。最终价格以 App Store 展示为准。[直接在 App Store 下载家维录](https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_readme_top&mt=8)，安装后从总览右上角选择方案。
+> 免费开始使用；中国区终身 Pro ¥198（一次性），年度 Pro ¥68/年。最终价格以 App Store 展示为准。[直接在 App Store 下载家维录](https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?pt=128677255&ct=github_owned_changji_q42026&mt=8)，安装后从总览右上角选择方案。
 
 ## 立即使用
 
@@ -13,7 +13,7 @@
 - [使用家庭保养日期计算器](https://wanglei13975.github.io/jiaweilu-homefolio-site/maintenance-calculator/)
 - [查看家电保修到期提醒清单](https://wanglei13975.github.io/jiaweilu-homefolio-site/warranty-checklist/)
 - [阅读家电保修与维修记录清单（公开指南）](https://gist.github.com/wanglei13975/c8e2fd6484a80f0446283ef1647d2e2f)
-- [在 App Store 下载家维录](https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_readme&mt=8)
+- [在 App Store 下载家维录](https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?pt=128677255&ct=github_owned_changji_q42026&mt=8)
 - [隐私政策](https://wanglei13975.github.io/jiaweilu-homefolio-site/privacy/)
 - [帮助与支持](https://wanglei13975.github.io/jiaweilu-homefolio-site/support/)
 

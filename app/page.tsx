@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const appStoreURL = "https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?ct=github_jiaweilu&mt=8";
+const appStoreURL = "https://apps.apple.com/cn/app/%E5%AE%B6%E7%BB%B4%E5%BD%95/id6799400433?pt=128677255&ct=site_home_changji_q4_2026&mt=8";
 
 const features = [
   { number: "01", title: "一件资产，一份完整档案", copy: "型号、序列号、购买价格、保修日期、铭牌和票据，都放回正确的位置。" },

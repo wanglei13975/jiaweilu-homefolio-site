@@ -39,13 +39,13 @@ test("renders the 家维录 product page with real product value", async () => {
   assert.match(html, /无需账户/);
   assert.match(html, /无广告/);
   assert.match(html, /本地保存/);
-  assert.match(html, /apple-itunes-app/);
+  assert.match(html, /apple-itunes-app" content="app-id=6799400433, ct=site_home_changji_q4_2026, pt=128677255, mt=8/);
   assert.match(html, /在 App Store 下载家维录/);
-  assert.match(html, /id6799400433\?ct=github_jiaweilu&amp;mt=8/);
+  assert.match(html, /id6799400433\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
   assert.match(html, /class="mobilePurchaseBar"/);
   assert.match(html, /终身 Pro ¥198（一次性）/);
   assert.match(html, /年度 Pro ¥68\/年/);
-  assert.match(html, /id6799400433\?ct=github_mobile_cta&amp;mt=8/);
+  assert.match(html, /id6799400433\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
   assert.match(html, /总览右上角打开“家维录 Pro”选择方案/);
   assert.doesNotMatch(html, /上架前质量验证/);
   assert.doesNotMatch(html, /9 月 1 日至 25 日|9\/1–9\/25|¥6(?!8)/);
@@ -79,7 +79,7 @@ test("renders a high-intent family maintenance guide with a tracked store CTA", 
   assert.match(html, /家电保修、维修和保养/);
   assert.match(html, /记录品牌、型号、序列号/);
   assert.match(html, /在 App Store 下载家维录/);
-  assert.match(html, /id6799400433\?ct=github_home_maintenance&amp;mt=8/);
+  assert.match(html, /id6799400433\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
   assert.match(html, /class="mobilePurchaseBar"/);
@@ -94,7 +94,7 @@ test("renders a free maintenance calculator with a tracked store CTA", async () 
   assert.match(html, /按你设定的月份计算日期/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /WebApplication/);
-  assert.match(html, /id6799400433\?ct=github_maintenance_calculator&amp;mt=8/);
+  assert.match(html, /id6799400433\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
   assert.match(html, /¥68/);
   assert.match(html, /¥198/);
   assert.match(html, /class="mobilePurchaseBar"/);
@@ -108,7 +108,7 @@ test("renders a high-intent warranty checklist with a tracked store CTA", async 
   assert.match(html, /找到购买凭证/);
   assert.match(html, /维修经过/);
   assert.match(html, /在 App Store 下载家维录/);
-  assert.match(html, /id6799400433\?ct=github_warranty_checklist&amp;mt=8/);
+  assert.match(html, /id6799400433\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
   assert.match(html, /¥198/);
   assert.match(html, /¥68/);
   assert.doesNotMatch(html, /9 月 1 日至 25 日|9\/1–9\/25|¥6(?!8)/);
@@ -127,6 +127,7 @@ test("keeps the GitHub Pages fallback aligned with current Pro pricing", async (
     const html = await readFile(new URL(pathname, import.meta.url), "utf8");
     assert.match(html, /终身 Pro ¥198/);
     assert.match(html, /¥68\/年/);
+    assert.match(html, /apps\.apple\.com\/[^" ]+\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
     assert.doesNotMatch(html, /9 月 1 日至 25 日|9\/1–9\/25|¥6(?!8)/);
   }
 });
