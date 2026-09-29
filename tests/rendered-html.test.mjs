@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(pathname = "/") {
@@ -112,4 +113,20 @@ test("renders a high-intent warranty checklist with a tracked store CTA", async 
   assert.match(html, /¥68/);
   assert.doesNotMatch(html, /9 月 1 日至 25 日|9\/1–9\/25|¥6(?!8)/);
   assert.match(html, /class="mobilePurchaseBar"/);
+});
+
+test("keeps the GitHub Pages fallback aligned with current Pro pricing", async () => {
+  for (const pathname of [
+    "../docs/index.html",
+    "../docs/home-maintenance/index.html",
+    "../docs/maintenance-calculator/index.html",
+    "../docs/warranty-checklist/index.html",
+    "../docs/privacy/index.html",
+    "../docs/support/index.html",
+  ]) {
+    const html = await readFile(new URL(pathname, import.meta.url), "utf8");
+    assert.match(html, /终身 Pro ¥198/);
+    assert.match(html, /¥68\/年/);
+    assert.doesNotMatch(html, /9 月 1 日至 25 日|9\/1–9\/25|¥6(?!8)/);
+  }
 });
