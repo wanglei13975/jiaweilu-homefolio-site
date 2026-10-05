@@ -33,6 +33,7 @@ export default function HomeMaintenance() {
       <p className="eyebrow">家庭资产管理 · 保修 · 维护</p>
       <h1>家电保修、维修和保养，<br/><em>别再散落在相册和聊天里。</em></h1>
       <p className="lead">家维录把家里的设备、票据、保修和维护记录放回同一份家庭档案。需要报修、搬家或规划下一次保养时，打开就能找到。</p>
+      <p><Link className="textLink" href="/model-number-guide">只想先找到家电型号？查看型号查找指南 →</Link></p>
       <div className="guideGrid">
         <div className="guideCards">{reasons.map(([title, copy], index) => <section className="guideCard" key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></section>)}</div>
         <Image className="guideImage" src="/assets.png" width={310} height={674} alt="家维录家庭资产列表与保修记录"/>

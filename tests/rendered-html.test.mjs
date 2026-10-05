@@ -121,6 +121,21 @@ test("renders a high-intent warranty checklist with a tracked store CTA", async 
   assert.match(html, /class="mobilePurchaseBar"/);
 });
 
+test("renders a model-number guide with model-specific official sources and a tracked store CTA", async () => {
+  const html = await expectPage("/model-number-guide");
+  assert.match(html, /<title>冰箱、空调、洗衣机型号在哪里看？· 家维录<\/title>/);
+  assert.match(html, /家电型号在哪里看？/);
+  assert.match(html, /型号标签位置没有统一标准/);
+  assert.match(html, /把型号与序列号分开记/);
+  assert.match(html, /不要为了找标签独自拉动或倾斜/);
+  assert.match(html, /www\.haier\.com\/jp\/service-support/);
+  assert.match(html, /www\.mi\.com\/uk\/support\/faq/);
+  assert.match(html, /www\.haier\.com\/in\/service-support/);
+  assert.match(html, /id6799400433\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
+  assert.match(html, /href="\/warranty-checklist"/);
+  assert.match(html, /class="mobilePurchaseBar"/);
+});
+
 test("ships blank UTF-8 CSV templates with headers and no personal sample data", async () => {
   for (const [pathname, columns] of [
     ["../public/home-appliance-record-template.csv", ["设备名称", "房间/位置", "品牌", "型号", "序列号", "购买日期"]],
@@ -139,6 +154,7 @@ test("keeps the GitHub Pages fallback aligned with current Pro pricing", async (
   for (const pathname of [
     "../docs/index.html",
     "../docs/home-maintenance/index.html",
+    "../docs/model-number-guide/index.html",
     "../docs/maintenance-calculator/index.html",
     "../docs/warranty-checklist/index.html",
     "../docs/privacy/index.html",
@@ -227,8 +243,21 @@ test("loads campaign attribution forwarding on the acquisition GitHub Pages rout
     "../docs/home-maintenance/index.html",
     "../docs/maintenance-calculator/index.html",
     "../docs/warranty-checklist/index.html",
+    "../docs/model-number-guide/index.html",
   ]) {
     const html = await readFile(new URL(pathname, import.meta.url), "utf8");
     assert.match(html, /defer src="\/jiaweilu-homefolio-site\/campaign-link\.js"/);
   }
+});
+
+test("links the model-number guide from its related pages and the sitemap", async () => {
+  for (const pathname of [
+    "../docs/home-maintenance/index.html",
+    "../docs/warranty-checklist/index.html",
+  ]) {
+    const html = await readFile(new URL(pathname, import.meta.url), "utf8");
+    assert.match(html, /href="\.\.\/model-number-guide\/"/);
+  }
+  const sitemap = await readFile(new URL("../docs/sitemap.xml", import.meta.url), "utf8");
+  assert.match(sitemap, /https:\/\/wanglei13975\.github\.io\/jiaweilu-homefolio-site\/model-number-guide\//);
 });

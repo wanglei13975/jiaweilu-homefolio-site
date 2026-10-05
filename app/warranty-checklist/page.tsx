@@ -35,6 +35,7 @@ export default function WarrantyChecklistPage() {
       <p className="eyebrow">家电保修 · 票据 · 维修记录</p>
       <h1>家电保修与维修记录表，<br/><em>先把关键信息放在一起。</em></h1>
       <p className="lead">保修期真正要用时，最难找的往往不是日期，而是型号、序列号、票据和上次维修经过。按下面五步整理一件设备，就能少翻一次相册和聊天记录。</p>
+      <p><Link className="textLink" href="/model-number-guide">不知道型号在哪找？查看型号查找指南 →</Link></p>
       <div className="guideGrid">
         <div className="guideCards">{checklist.map(([title, copy], index) => <section className="guideCard" key={title}><span>0{index + 1}</span><h2>{title}</h2><p>{copy}</p></section>)}</div>
         <Image className="guideImage" src="/assets.png" width={310} height={674} alt="家维录家庭资产档案与保修记录"/>
