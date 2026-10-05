@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-Hans"><body>{children}<div className="mobilePurchaseBar" aria-label="Pro 购买方案"><span><strong>终身 Pro ¥198</strong><small>一次性 · 年度 ¥68/年</small></span><a href={appStoreURL} target="_blank" rel="noreferrer">打开 App Store <span aria-hidden="true">↗</span></a></div></body></html>;
+  return <html lang="zh-Hans"><body>{children}<div className="mobilePurchaseBar" aria-label="Pro 购买方案"><span><strong>终身 Pro ¥198</strong><small>一次性 · 年度 ¥68/年</small></span><a href={appStoreURL} target="_blank" rel="noreferrer">打开 App Store <span aria-hidden="true">↗</span></a></div><script defer src="/campaign-link.js" /></body></html>;
 }

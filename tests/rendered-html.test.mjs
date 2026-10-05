@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import vm from "node:vm";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -142,6 +143,8 @@ test("keeps the GitHub Pages fallback aligned with current Pro pricing", async (
     "../docs/warranty-checklist/index.html",
     "../docs/privacy/index.html",
     "../docs/support/index.html",
+    "../docs/privacy/index.html",
+    "../docs/support/index.html",
   ]) {
     const html = await readFile(new URL(pathname, import.meta.url), "utf8");
     assert.match(html, /终身 Pro ¥198/);
@@ -165,5 +168,67 @@ test("serves both blank record templates from the GitHub Pages fallback", async 
     const csv = bytes.toString("utf8").replace(/^\uFEFF/, "");
     assert.ok(csv.startsWith(firstColumn + ","));
     assert.equal(csv.trim().split(/\r?\n/).length, 2);
+  }
+});
+
+test("forwards only registered Changji campaign tokens to App Store links", async () => {
+  const script = await readFile(new URL("../public/campaign-link.js", import.meta.url), "utf8");
+  const githubPagesScript = await readFile(new URL("../docs/campaign-link.js", import.meta.url), "utf8");
+  assert.equal(githubPagesScript, script);
+
+  const storeLink = { href: "https://apps.apple.com/cn/app/id6799400433?pt=128677255&ct=site_home_changji_q4_2026&mt=8" };
+  const nonStoreLink = { href: "https://example.com/help" };
+  const banner = { content: "app-id=6799400433, ct=site_home_changji_q4_2026, pt=128677255, mt=8" };
+  let clickHandler;
+  const storedValues = new Map();
+  const document = {
+    querySelectorAll: () => [storeLink, nonStoreLink],
+    querySelector: () => banner,
+    addEventListener: (_name, handler) => { clickHandler = handler; },
+  };
+  const window = {
+    location: { search: "?ct=apple_ads_1025_cn_home", href: "https://wanglei13975.github.io/jiaweilu-homefolio-site/" },
+    sessionStorage: { setItem: (key, value) => storedValues.set(key, value), getItem: (key) => storedValues.get(key) ?? null },
+  };
+  vm.runInNewContext(script, { document, window, URL, URLSearchParams });
+  const updated = new URL(storeLink.href);
+  assert.equal(updated.searchParams.get("pt"), "128677255");
+  assert.equal(updated.searchParams.get("ct"), "apple_ads_1025_cn_home");
+  assert.equal(updated.searchParams.get("mt"), "8");
+  assert.equal(nonStoreLink.href, "https://example.com/help");
+  assert.match(banner.content, /ct=apple_ads_1025_cn_home/);
+
+  const dynamicLink = { href: "https://apps.apple.com/cn/app/id6799400433" };
+  clickHandler({ target: { closest: () => dynamicLink } });
+  assert.equal(new URL(dynamicLink.href).searchParams.get("ct"), "apple_ads_1025_cn_home");
+
+  const nextPageLink = { href: "https://apps.apple.com/cn/app/id6799400433?ct=site_home_changji_q4_2026" };
+  const nextPageDocument = { querySelectorAll: () => [nextPageLink], querySelector: () => null, addEventListener() {} };
+  const nextPageWindow = {
+    location: { search: "", href: "https://wanglei13975.github.io/jiaweilu-homefolio-site/home-maintenance/" },
+    sessionStorage: window.sessionStorage,
+  };
+  vm.runInNewContext(script, { document: nextPageDocument, window: nextPageWindow, URL, URLSearchParams });
+  assert.equal(new URL(nextPageLink.href).searchParams.get("ct"), "apple_ads_1025_cn_home");
+});
+
+test("does not pass an unregistered Changji token into the App Store", async () => {
+  const script = await readFile(new URL("../public/campaign-link.js", import.meta.url), "utf8");
+  const storeLink = { href: "https://apps.apple.com/cn/app/id6799400433?ct=site_home_changji_q4_2026" };
+  const document = { querySelectorAll: () => [storeLink], querySelector: () => null, addEventListener() {} };
+  const window = { location: { search: "?ct=not_registered", href: "https://example.com/" } };
+  vm.runInNewContext(script, { document, window, URL, URLSearchParams });
+  assert.equal(new URL(storeLink.href).searchParams.get("ct"), "site_home_changji_q4_2026");
+});
+
+test("loads campaign attribution forwarding on the acquisition GitHub Pages routes", async () => {
+  for (const pathname of [
+    "../docs/index.html",
+    "../docs/home-maintenance/index.html",
+    "../docs/maintenance-calculator/index.html",
+    "../docs/warranty-checklist/index.html",
+  ]) {
+    const html = await readFile(new URL(pathname, import.meta.url), "utf8");
+    assert.match(html, /defer src="\/jiaweilu-homefolio-site\/campaign-link\.js"/);
   }
 });
