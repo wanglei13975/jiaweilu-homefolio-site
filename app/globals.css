@@ -8,3 +8,19 @@
 @media(max-width:800px){.calcFields{grid-template-columns:1fr}.calcCard{padding:22px}.calculator{margin-top:42px}}
 .mobilePurchaseBar{display:none}
 @media(max-width:800px){body{padding-bottom:88px}.mobilePurchaseBar{position:fixed;z-index:20;left:12px;right:12px;bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px 11px 15px;border:1px solid rgba(255,113,56,.48);border-radius:18px;background:rgba(7,16,24,.94);box-shadow:0 12px 36px rgba(0,0,0,.42);backdrop-filter:blur(18px)}.mobilePurchaseBar>span{display:grid;gap:2px;min-width:0}.mobilePurchaseBar strong{color:#ffd6c8;font-size:14px;white-space:nowrap}.mobilePurchaseBar small{color:#aeb2b9;font-size:11px;white-space:nowrap}.mobilePurchaseBar>a{display:inline-flex;align-items:center;gap:5px;flex:none;padding:9px 11px;border-radius:999px;background:var(--orange);color:#1a1714;font-size:12px;font-weight:800;white-space:nowrap}.mobilePurchaseBar>a span{display:inline;color:inherit;font-size:15px}}
+.templatePanel{margin-top:58px;padding:34px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(135deg,#142531,#0f1921)}
+.templatePanel>.eyebrow{margin:0 0 14px}
+.templatePanel h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.035em;margin:0 0 14px}
+.templatePanel>p:not(.eyebrow){max-width:850px;color:#b5bac1;line-height:1.8;margin:0}
+.templateDownloads{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.templateDownload{display:inline-flex;align-items:center;gap:12px;padding:13px 16px;border:1px solid rgba(255,113,56,.65);border-radius:14px;background:rgba(255,113,56,.1);color:#ffd6c8;font-weight:750}
+.templateDownload span{font-size:11px;color:#ff9d79;letter-spacing:.08em}
+.templateDownload:hover,.templateDownload:focus-visible{background:rgba(255,113,56,.2);outline:2px solid var(--orange);outline-offset:2px}
+.templateFieldGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:26px}
+.templateFieldGrid>div{padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035)}
+.templateFieldGrid h3{margin:0 0 8px;font-size:17px}
+.templateFieldGrid p,.templatePanel .templateNote{color:#aeb2b9;font-size:14px;line-height:1.75;margin:0}
+.templatePanel .templateNote{margin-top:22px;font-size:12px}
+.templatePrint{display:none}
+@media(max-width:800px){.templatePanel{padding:25px 22px}.templateFieldGrid{grid-template-columns:1fr}.templateDownloads{display:grid}.templateDownload{justify-content:space-between}}
+@media print{@page{size:A4 landscape;margin:12mm}body{padding:0!important;background:#fff!important;color:#111!important;font:9pt/1.4 Arial,"PingFang SC",sans-serif}.nav,footer,.mobilePurchaseBar,.guide> .eyebrow,.guide>h1,.guide>.lead,.guideGrid,.templatePanel,.guideBottom{display:none!important}.guide{max-width:none;margin:0;padding:0}.templatePrint{display:block!important;color:#111!important}.templatePrint h2{font-size:16pt;margin:0 0 3mm}.templatePrint h2:not(:first-child){margin-top:9mm}.templatePrint p{margin:0 0 3mm;color:#333!important}.templatePrint table{width:100%;border-collapse:collapse;table-layout:fixed}.templatePrint th,.templatePrint td{height:9mm;border:1px solid #555;padding:1.5mm;text-align:left;vertical-align:top;color:#111!important}.templatePrint th{height:auto;background:#eee!important;font-size:8pt;line-height:1.25;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-weight:700}.templatePrint tr{break-inside:avoid}}

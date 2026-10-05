@@ -103,16 +103,35 @@ test("renders a free maintenance calculator with a tracked store CTA", async () 
 
 test("renders a high-intent warranty checklist with a tracked store CTA", async () => {
   const html = await expectPage("/warranty-checklist");
-  assert.match(html, /<title>家电保修到期提醒清单 · 家维录<\/title>/);
-  assert.match(html, /家电保修到期提醒/);
+  assert.match(html, /<title>家电保修与维修记录表模板（免费）· 家维录<\/title>/);
+  assert.match(html, /家电保修与维修记录表/);
   assert.match(html, /找到购买凭证/);
   assert.match(html, /维修经过/);
+  assert.match(html, /下载家电档案表和维修记录表/);
+  assert.match(html, /href="\/home-appliance-record-template\.csv" download/);
+  assert.match(html, /href="\/home-maintenance-log-template\.csv" download/);
+  assert.match(html, /本页不会接收或上传表格内容/);
+  assert.match(html, /class="templatePrint"/);
   assert.match(html, /在 App Store 下载家维录/);
   assert.match(html, /id6799400433\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
   assert.match(html, /¥198/);
   assert.match(html, /¥68/);
   assert.doesNotMatch(html, /9 月 1 日至 25 日|9\/1–9\/25|¥6(?!8)/);
   assert.match(html, /class="mobilePurchaseBar"/);
+});
+
+test("ships blank UTF-8 CSV templates with headers and no personal sample data", async () => {
+  for (const [pathname, columns] of [
+    ["../public/home-appliance-record-template.csv", ["设备名称", "房间/位置", "品牌", "型号", "序列号", "购买日期"]],
+    ["../public/home-maintenance-log-template.csv", ["日期", "设备名称", "事项类型（维修/保养/检查）", "服务商", "实际费用", "下次维护日期"]],
+  ]) {
+    const bytes = await readFile(new URL(pathname, import.meta.url));
+    assert.deepEqual([...bytes.subarray(0, 3)], [0xef, 0xbb, 0xbf]);
+    const csv = bytes.toString("utf8").replace(/^\uFEFF/, "");
+    const headers = csv.split(/\r?\n/, 1)[0].split(",");
+    for (const column of columns) assert.ok(headers.includes(column), "missing CSV column: " + column);
+    assert.equal(csv.trim().split(/\r?\n/).length, 2);
+  }
 });
 
 test("keeps the GitHub Pages fallback aligned with current Pro pricing", async () => {
@@ -129,5 +148,22 @@ test("keeps the GitHub Pages fallback aligned with current Pro pricing", async (
     assert.match(html, /¥68\/年/);
     assert.match(html, /apps\.apple\.com\/[^" ]+\?pt=128677255&amp;ct=site_home_changji_q4_2026&amp;mt=8/);
     assert.doesNotMatch(html, /9 月 1 日至 25 日|9\/1–9\/25|¥6(?!8)/);
+  }
+});
+
+test("serves both blank record templates from the GitHub Pages fallback", async () => {
+  const html = await readFile(new URL("../docs/warranty-checklist/index.html", import.meta.url), "utf8");
+  assert.match(html, /家电保修与维修记录表模板（免费）· 家维录/);
+  assert.match(html, /href="\.\.\/home-appliance-record-template\.csv" download/);
+  assert.match(html, /href="\.\.\/home-maintenance-log-template\.csv" download/);
+  for (const [name, firstColumn] of [
+    ["home-appliance-record-template.csv", "设备名称"],
+    ["home-maintenance-log-template.csv", "日期"],
+  ]) {
+    const bytes = await readFile(new URL("../docs/" + name, import.meta.url));
+    assert.deepEqual([...bytes.subarray(0, 3)], [0xef, 0xbb, 0xbf]);
+    const csv = bytes.toString("utf8").replace(/^\uFEFF/, "");
+    assert.ok(csv.startsWith(firstColumn + ","));
+    assert.equal(csv.trim().split(/\r?\n/).length, 2);
   }
 });
